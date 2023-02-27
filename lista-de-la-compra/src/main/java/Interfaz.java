@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Interfaz {
@@ -5,8 +6,15 @@ public class Interfaz {
     private ListaDeLaCompra listaDeLaCompra;
 
     public Interfaz(String archivo) {
-        listaDeLaCompra = new ListaDeLaCompra(archivo);
+        try {
+            listaDeLaCompra = new ListaDeLaCompra(archivo);
+            System.out.println("Esta linea no se ejecutará");
+        } catch (IOException | ArrayIndexOutOfBoundsException e){
+            //throw new RuntimeException(e);
+            System.out.println("Ha ocurrido un problema con el archivo mi-lista.txt");
+        }
     }
+
     public void mostrarMenu() {
         Scanner scanner = new Scanner(System.in);
         int opcionElegida;

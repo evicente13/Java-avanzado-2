@@ -7,16 +7,14 @@ public class ListaDeLaCompra {
 
     private ArrayList<String> lista;
 
-    public ListaDeLaCompra(String filename) {
+    public ListaDeLaCompra(String filename) throws IOException {
         cargarLista(filename);
     }
 
-    private void cargarLista(String filename) {
-        try {
-            lista = new ArrayList<>(Files.readAllLines(Paths.get(filename)));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private void cargarLista(String filename) throws IOException {
+
+        lista = new ArrayList<>(Files.readAllLines(Paths.get(filename)));
+
     }
 
     public String obtenerElemento(int posicion) {
